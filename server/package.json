@@ -1,0 +1,27 @@
+{
+  "name": "youcalled-server",
+  "version": "1.0.0",
+  "description": "An AI assistant to help you answer your most confusing questions, write the hardest letters and much more. You called?",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon server.js"
+  },
+  "keywords": [
+    "openai",
+    "chatgpt",
+    "ai",
+    "node",
+    "react",
+    "typescript",
+    "node"
+  ],
+  "author": "Tolu Ajia",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22",
+    "openai": "^3.2.1"
+  }
+}
