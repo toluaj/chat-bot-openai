@@ -21,6 +21,10 @@ const configuration = new Configuration({
 })
 const openai = new OpenAIApi(configuration)
 
+app.get('/', (req, res) => {
+    res.send('Hey this is my API running 🥳')
+  })
+
 
 app.post('/', async (req, res, next) => {
     try {
