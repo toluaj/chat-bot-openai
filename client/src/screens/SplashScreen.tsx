@@ -23,7 +23,7 @@ function Chat () {
                 method: "post",
                 url: "https://openai-chat-bot-server.vercel.app",
                 data: { chats: chat.slice(0) },
-                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+                headers: { 'Content-Type': 'application/json' }
             })
             setIsLoading(false)
             setResponses(response.data?.responses)
