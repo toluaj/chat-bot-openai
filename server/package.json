@@ -2,10 +2,10 @@
   "name": "youcalled-server",
   "version": "1.0.0",
   "description": "An AI assistant to help you answer your most confusing questions, write the hardest letters and much more. You called?",
-  "main": "server.js",
+  "main": "./api/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon index.js"
+    "server": "nodemon ./api/index.js"
   },
   "keywords": [
     "openai",
