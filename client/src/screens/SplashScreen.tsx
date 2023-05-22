@@ -6,6 +6,7 @@ import axios from 'axios'
 import SingleChat from "../components/SingleChat"
 import ChatSearch from "../components/ChatSearch"
 import { TypeAnimation } from "react-type-animation"
+import toast, { Toaster } from "react-hot-toast"
 
 function Chat () {
     const [searchInput, setSearchInput] = useState("")
@@ -21,7 +22,7 @@ function Chat () {
             setChat(messages)
             const response = await axios({
                 method: "post",
-                url: "https://openai-chat-bot-server.vercel.app",
+                url: "https://chat-bot-openai.onrender.com/",
                 data: { chats: chat.slice(0) },
                 headers: { 'Content-Type': 'application/json' }
             })
@@ -29,13 +30,19 @@ function Chat () {
             setResponses(response.data?.responses)
             messages.push({ role: 'assistant', content: response.data?.responses[0]?.message.content })
             setChat(messages)
-        } catch (error) {
-            console.log("Error: ", error)
-        }
+        } catch(err) {
+            setIsLoading(false)
+            if (axios.isAxiosError(err))  {
+                if (err.response?.data === "You have exceeded the rate limit for the hour") {
+                    toast.error('You have reached your request limit for the hour 😔')
+                }
+            }
+          }
     }
 
     return (
         <Box>
+        <Toaster />
         {isLoading || (responses && responses.length > 0) ? 
             <SingleChat chat={chat} isLoading={isLoading} />
             :
