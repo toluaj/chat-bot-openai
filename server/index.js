@@ -21,6 +21,13 @@ const configuration = new Configuration({
 })
 const openai = new OpenAIApi(configuration)
 
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+    next();
+  })
+
 app.get('/', (req, res) => {
     res.send('Hey this is my API running 🥳')
   })
