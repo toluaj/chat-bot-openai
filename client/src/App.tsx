@@ -1,12 +1,12 @@
-import { ChakraProvider } from '@chakra-ui/react'
-import Chat from './components/Chat';
+import { Box, ChakraProvider } from '@chakra-ui/react'
+import Chat from './screens/SplashScreen';
 
 function App() {
   return (
     <ChakraProvider>
-      <div>
+      <Box>
         <Chat />
-      </div>
+      </Box>
     </ChakraProvider>
   );
 }
