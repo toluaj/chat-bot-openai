@@ -1,15 +1,19 @@
+require('dotenv').config()
+
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const express = require('express')
 const { Configuration, OpenAIApi } = require('openai')
+const { rateLimiter } = require('./rateLimiter')
 const PORT = process.env.PORT || 4000
 
 const app = express()
 
-app.use(cors({origin: 'http://localhost:3000'}))
+app.use(cors({origin: process.env.ALLOWED_ORIGIN}))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.json())
+app.use(rateLimiter())
 
 const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
@@ -19,13 +23,18 @@ const openai = new OpenAIApi(configuration)
 
 
 app.post('/', async (req, res, next) => {
-    const completion = await openai.createChatCompletion({
-        model: "gpt-3.5-turbo",
-        messages: [{role: "user", content: req.body.question}],
-        temperature: 0.2,
-        n: 3
-    })
+    try {
+        const { chats } = req.body
+        const completion = await openai.createChatCompletion({
+            model: "gpt-3.5-turbo",
+            messages: [{ role: "system", content: "You are Lola, and you can help with any tasks" }, ...chats],
+            temperature: 0.2,
+            n: 3
+        })
     res.send({ responses: completion.data.choices})
+    } catch (error) {
+        console.log(error)
+    }
 })
 
 app.listen(PORT, async () => {
