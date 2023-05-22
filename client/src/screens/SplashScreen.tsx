@@ -14,20 +14,24 @@ function Chat () {
     const [responses, setResponses] = useState<any[]>([])
 
     const getResponse = async (question?: string) => {
-        setIsLoading(true)
-        let messages = chat
-        messages.push({ role: 'user', content: question ? question : searchInput })
-        setChat(messages)
-        const response = await axios({
-            method: "post",
-            url: "https://openai-chat-bot-server.vercel.app/",
-            data: { chats: chat.slice(0) },
-            headers: { 'Content-Type': 'application/json' }
-        })
-        setIsLoading(false)
-        setResponses(response.data?.responses)
-        messages.push({ role: 'assistant', content: response.data?.responses[0]?.message.content })
-        setChat(messages)
+        try {
+            setIsLoading(true)
+            let messages = chat
+            messages.push({ role: 'user', content: question ? question : searchInput })
+            setChat(messages)
+            const response = await axios({
+                method: "post",
+                url: "https://openai-chat-bot-server.vercel.app",
+                data: { chats: chat.slice(0) },
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+            })
+            setIsLoading(false)
+            setResponses(response.data?.responses)
+            messages.push({ role: 'assistant', content: response.data?.responses[0]?.message.content })
+            setChat(messages)
+        } catch (error) {
+            console.log("Error: ", error)
+        }
     }
 
     return (
