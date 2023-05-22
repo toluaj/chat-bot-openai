@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 4000
 
 const app = express()
 
-app.use(cors({origin: '*'}))
+app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.json())
