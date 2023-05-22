@@ -20,7 +20,7 @@ function Chat () {
         setChat(messages)
         const response = await axios({
             method: "post",
-            url: "http://localhost:4000/",
+            url: "https://openai-chat-bot-server.vercel.app/",
             data: { chats: chat.slice(0) },
             headers: { 'Content-Type': 'application/json' }
         })
