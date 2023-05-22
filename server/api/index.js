@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const cors = require('cors')
 const express = require('express')
 const { Configuration, OpenAIApi } = require('openai')
-const { rateLimiter } = require('./rateLimiter')
+const { rateLimiter } = require('../rateLimiter')
 const PORT = process.env.PORT || 4000
 
 const app = express()
