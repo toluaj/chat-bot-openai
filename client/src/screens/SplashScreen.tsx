@@ -8,10 +8,15 @@ import ChatSearch from "../components/ChatSearch"
 import { TypeAnimation } from "react-type-animation"
 import toast, { Toaster } from "react-hot-toast"
 
+export type ChatType = {
+    role: 'user' | 'assistant';
+    content: string
+}
+
 function Chat () {
     const [searchInput, setSearchInput] = useState("")
     const [isLoading, setIsLoading] = useState(false)
-    const [chat, setChat] = useState<any[]>([])
+    const [chat, setChat] = useState<ChatType[]>([])
     const [responses, setResponses] = useState<any[]>([])
 
     const getResponse = async (question?: string) => {
