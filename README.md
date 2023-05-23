@@ -1,7 +1,7 @@
 # chat-bot-openai
 ## Usage
 
-To try out the ChatGPT Recreation, simply visit our website at https://chat-openai-six.vercel.app/. The website offers a user-friendly interface where you can start chatting with the chatbot right away.
+To try out this mini recreation of OpenAI's ChatGPT, simply visit our website at https://chat-openai-six.vercel.app/. The website offers a user-friendly interface where you can start chatting with the chatbot right away.
 
 ## Technology Stack
 
@@ -13,7 +13,7 @@ To make UI development more convenient, I employed Chakra UI, a powerful library
 
 ## Request Limit
 
-Since the ChatGPT Recreation relies on OpenAI's language model, it's important to mention that this is a paid service. To manage usage, each user is limited to 10 requests per hour. This ensures fair usage and helps maintain the availability of the service. Please keep this limit in mind while using the chatbot.
+Since this project relies on OpenAI's language model, it's important to mention that this is a paid service. To manage usage, each user is limited to 10 requests per hour. This ensures fair usage and helps maintain the availability of the service. Please keep this limit in mind while using the chatbot.
 
 ## Future Plans
 
