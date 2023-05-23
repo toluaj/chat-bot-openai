@@ -13,7 +13,7 @@ To make UI development more convenient, I employed Chakra UI, a powerful library
 
 ## Note on Response Speed
 
-Please be aware that the responses from the chatbot may be slower due to the API call made to OpenAI. The response time depends on factors such as network conditions and the current load on the OpenAI servers. We apologize for any inconvenience caused by this delay and will explore optimization opportunities to improve response times in future iterations.
+Please be aware that the responses from the chatbot may be slower due to the API call made to OpenAI. The response time depends on factors such as network conditions and the current load on the OpenAI servers. I apologize for any inconvenience caused by this delay and will explore optimization opportunities to improve response times in future iterations.
 
 ## Request Limit
 
