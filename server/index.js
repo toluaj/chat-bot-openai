@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 4000
 
 const app = express()
 
-app.use(cors({origin: true, credentials: true}))
+app.use(cors({origin: ['https://chat-openai-six.vercel.app/', 'http://localhost:3001']}))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.json())
@@ -21,12 +21,6 @@ const configuration = new Configuration({
 })
 const openai = new OpenAIApi(configuration)
 
-app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-    next();
-  })
 
 app.get('/', (req, res) => {
     res.send('Hey this is my API running 🥳')
