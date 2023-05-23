@@ -9,7 +9,7 @@ import { MdHourglassFull } from 'react-icons/md'
 interface SingleChatProps {
    chat: ChatType[],
    isLoading: boolean,
-   error: string;
+   error?: string;
 }
 
 const SingleChat = ({ chat, isLoading, error }: SingleChatProps) => {
@@ -18,7 +18,7 @@ const SingleChat = ({ chat, isLoading, error }: SingleChatProps) => {
     },[error])
 
   return (
-    <Box id="scroller" maxH={[ 'calc(100vh - 80px)']} overflow={'auto'} paddingTop={5} paddingLeft={['1em', '1em', '5em', '10em', '25em']} paddingRight={['1em', '1em', '5em', '10em', '25em']}>
+    <Box id="scroller" maxH={['calc(100vh - 200px)', 'calc(100vh - 80px)']} overflow={'auto'} paddingTop={5} paddingLeft={['1em', '1em', '5em', '10em', '25em']} paddingRight={['1em', '1em', '5em', '10em', '25em']}>
         <Toaster position='top-right' />
         {chat.map((chat, index) => (
             chat.role === 'user' ? (
