@@ -33,14 +33,14 @@ const ChatSearch = ({ question, onClick, isLoading }: ChatSearchProps) => {
         <Box as="footer" bottom="5" position="fixed">
             <FormControl>
             <InputGroup>
-                <AutoResizeTextarea 
-                    value={searchInput} 
-                    width={["72", "2xl", "2xl"]} 
+                <AutoResizeTextarea
+                    value={searchInput}
+                    width={["72", "2xl", "2xl"]}
                     backgroundColor={'white'}
                     _focus={{ border: 'none' }}
-                    placeholder="What do you want to know?" 
-                    onKeyPress={(e) => { (e.key === 'Enter' && !e.shiftKey) && handleSearch(e) }} 
-                    onChange={(e) => setSearchInput(e.target.value)} 
+                    placeholder="What do you want to know?"
+                    onKeyPress={(e) => { (e.key === 'Enter' && !e.shiftKey) && handleSearch(e) }}
+                    onChange={(e) => setSearchInput(e.target.value)}
                 />
                 <InputRightElement>
                     <IconButton 
