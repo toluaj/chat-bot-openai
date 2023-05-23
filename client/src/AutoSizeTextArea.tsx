@@ -14,6 +14,7 @@ export const AutoResizeTextarea = React.forwardRef<
       ref={ref}
       minRows={1}
       maxRows={4}
+      paddingRight={10}
       as={ResizeTextarea}
       {...props}
     />
