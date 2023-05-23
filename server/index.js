@@ -33,8 +33,8 @@ app.post('/', async (req, res, next) => {
         const completion = await openai.createChatCompletion({
             model: "gpt-3.5-turbo",
             messages: [{ role: "system", content: "You are Lola, and you can help with any tasks" }, ...chats],
-            temperature: 0.2,
-            n: 3
+            temperature: 0.6,
+            n: 1
         })
     res.send({ responses: completion.data.choices})
     } catch (error) {
