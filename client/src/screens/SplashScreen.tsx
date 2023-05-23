@@ -6,7 +6,6 @@ import axios from 'axios'
 import SingleChat from "../components/SingleChat"
 import ChatSearch from "../components/ChatSearch"
 import { TypeAnimation } from "react-type-animation"
-import toast, { Toaster } from "react-hot-toast"
 
 export type ChatType = {
     role: 'user' | 'assistant';
@@ -18,9 +17,11 @@ function Chat () {
     const [isLoading, setIsLoading] = useState(false)
     const [chat, setChat] = useState<ChatType[]>([])
     const [responses, setResponses] = useState<any[]>([])
+    const [error, setError] = useState('')
 
     const getResponse = async (question?: string) => {
         try {
+            setError('')
             setIsLoading(true)
             let messages = chat
             messages.push({ role: 'user', content: question ? question : searchInput })
@@ -39,7 +40,7 @@ function Chat () {
             setIsLoading(false)
             if (axios.isAxiosError(err))  {
                 if (err.response?.data === "You have exceeded the rate limit for the hour") {
-                    toast.error('You have reached your request limit for the hour 😔')
+                    setError('You have reached your request limit for the hour 😔')
                 }
             }
           }
@@ -47,9 +48,8 @@ function Chat () {
 
     return (
         <Box>
-        <Toaster />
-        {isLoading || (responses && responses.length > 0) ? 
-            <SingleChat chat={chat} isLoading={isLoading} />
+        {isLoading || (responses && responses.length > 0) || error ? 
+            <SingleChat chat={chat} isLoading={isLoading} error={error} />
             :
         <Container>
             <Box alignContent={'center'} justifyContent={'center'} display={['none', 'none', 'flex']} color={"gray.600"} marginTop={'1.5'}>
