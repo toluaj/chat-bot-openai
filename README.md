@@ -11,6 +11,10 @@ On the backend, I utilized Node.js with Express to handle API requests and manag
 
 To make UI development more convenient, I employed Chakra UI, a powerful library that facilitated the creation of responsive and aesthetically pleasing components. It greatly expedited the process of building the user interface.
 
+## Note on Response Speed
+
+Please be aware that the responses from the chatbot may be slower due to the API call made to OpenAI. The response time depends on factors such as network conditions and the current load on the OpenAI servers. We apologize for any inconvenience caused by this delay and will explore optimization opportunities to improve response times in future iterations.
+
 ## Request Limit
 
 Since this project relies on OpenAI's language model, it's important to mention that this is a paid service. To manage usage, each user is limited to 10 requests per hour. This ensures fair usage and helps maintain the availability of the service. Please keep this limit in mind while using the chatbot.
