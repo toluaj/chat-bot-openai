@@ -5,7 +5,7 @@ import { AutoResizeTextarea } from '../AutoSizeTextArea';
 
 interface ChatSearchProps {
     question?: string;
-    onClick(searchInput: string): Promise<void>;
+    onClick?(searchInput: string): Promise<void>;
     isLoading: boolean;
 }
 
@@ -24,12 +24,12 @@ const ChatSearch = ({ question, onClick, isLoading }: ChatSearchProps) => {
 
     const handleSearch = async (e: FormEvent) => {
         e.preventDefault()
-        onClick(searchInput)
+        onClick && onClick(searchInput)
         setSearchInput('')
     }
 
   return (
-    <Flex alignContent={'center'} alignSelf={'center'} justifyContent={'center'}>
+    <Flex alignContent={'center'} alignSelf={'center'} justifyContent={'center'} paddingTop={20} marginTop={8}>
         <Box as="footer" bottom="5" position="fixed">
             <FormControl>
             <InputGroup>

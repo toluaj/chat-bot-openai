@@ -47,7 +47,7 @@ function Chat () {
     }
 
     return (
-        <Box>
+        <Box maxH={'100%'}>
         {isLoading || (responses && responses.length > 0) || error ? 
             <SingleChat chat={chat} isLoading={isLoading} error={error} />
             :
